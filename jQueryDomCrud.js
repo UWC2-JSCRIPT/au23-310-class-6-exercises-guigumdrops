@@ -16,13 +16,14 @@ $('li').eq(2).addClass('highlight');
 
 // Remove (delete) the last paragraph
 // (starts with "Available for purchase now…")
-$('p:last-child:contains("Available for purchase now")').remove();
+//$('p:last-child:contains("Available for purchase now")').remove();
 
 // Create a listener on the "Buy Now!" link that responds to a click event.
 // When clicked, the the "Buy Now!" link should be removed
 // and replaced with text that says "Added to cart"
 $('#cta').click(function() {
-    $(this).remove(); 
-    $(this).parent().append('<span>Added to cart</span>'); 
-  });
-  
+  if ($(this).attr('id') === 'cta') {
+    $(this).remove();
+    $(this).parent().append('<span>Added to cart</span>');
+  }
+});
